@@ -1,1 +1,14 @@
-["mtheunsyt" , "theusnsyt"]
+public static Result receiveInstaData(){
+    JsonNode json = request().body().asJson();
+
+    //obtain the x-hub-signature from the header
+    //obtain the corresponding client secret
+
+    VerificationResult verificationResult =  
+        SubscriptionUtil.verifySubscriptionPostSignature(
+            clientSecret, json.toString(), xHubSignature);
+
+    if(verificationResult.isSuccess()){
+    //do something
+    }
+ }
